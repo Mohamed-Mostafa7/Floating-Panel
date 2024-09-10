@@ -22,6 +22,9 @@ struct StartingView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            .sheet(isPresented: $isShowingFloatingPanel, content: {
+                FloatingListpanel(isShowingFloatingPanel: $isShowingFloatingPanel)
+            })
 
         }
         .padding()

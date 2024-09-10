@@ -12,6 +12,7 @@
 		E95E60BB2C907F4D00CB9F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E60BA2C907F4D00CB9F14 /* Assets.xcassets */; };
 		E95E60BE2C907F4D00CB9F14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95E60BD2C907F4D00CB9F14 /* Preview Assets.xcassets */; };
 		E95E60C52C90806100CB9F14 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E60C42C90806100CB9F14 /* Framework.swift */; };
+		E95E60C72C90980D00CB9F14 /* FloatingListpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E60C62C90980D00CB9F14 /* FloatingListpanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		E95E60BA2C907F4D00CB9F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E95E60BD2C907F4D00CB9F14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E95E60C42C90806100CB9F14 /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
+		E95E60C62C90980D00CB9F14 /* FloatingListpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingListpanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				E95E60B62C907F4A00CB9F14 /* Floating_PanelApp.swift */,
 				E95E60B82C907F4A00CB9F14 /* StartingView.swift */,
+				E95E60C62C90980D00CB9F14 /* FloatingListpanel.swift */,
 				E95E60C42C90806100CB9F14 /* Framework.swift */,
 				E95E60BA2C907F4D00CB9F14 /* Assets.xcassets */,
 				E95E60BC2C907F4D00CB9F14 /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				E95E60B92C907F4A00CB9F14 /* StartingView.swift in Sources */,
 				E95E60C52C90806100CB9F14 /* Framework.swift in Sources */,
+				E95E60C72C90980D00CB9F14 /* FloatingListpanel.swift in Sources */,
 				E95E60B72C907F4A00CB9F14 /* Floating_PanelApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
