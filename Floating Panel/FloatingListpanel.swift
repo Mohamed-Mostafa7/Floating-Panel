@@ -10,28 +10,29 @@ import SwiftUI
 struct FloatingListpanel: View {
     @Binding var isShowingFloatingPanel: Bool
     var body: some View {
-        VStack{
-            
-            topView(isShowingFloatingPanel: $isShowingFloatingPanel)
-            
-            Spacer()
-            
-            List {
-                ForEach(MockData.frameworks) { framework in
-                    Text(framework.name)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .cornerRadius(10)
-                        .overlay(content: {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray, lineWidth: 1)
-                        })
-                        .listRowSeparator(.hidden)
+        ZStack {
+            Color(.systemBackground)
+            VStack{
+                topView(isShowingFloatingPanel: $isShowingFloatingPanel)
+                
+                Spacer()
+                
+                List {
+                    ForEach(MockData.frameworks) { framework in
+                        Text(framework.name)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .cornerRadius(10)
+                            .overlay(content: {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray, lineWidth: 1)
+                            })
+                            .listRowSeparator(.hidden)
+                    }
                 }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
         }
-        
     }
 }
 
