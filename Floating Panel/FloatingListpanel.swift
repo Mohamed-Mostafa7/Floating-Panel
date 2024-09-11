@@ -9,11 +9,12 @@ import SwiftUI
 
 struct FloatingListpanel: View {
     @Binding var isShowingFloatingPanel: Bool
-    var body: some View {
+    @Binding var panelPosition: CGPoint
+        var body: some View {
         ZStack {
             Color(.systemBackground)
             VStack{
-                topView(isShowingFloatingPanel: $isShowingFloatingPanel)
+                topView(isShowingFloatingPanel: $isShowingFloatingPanel, panelPosition: $panelPosition)
                 
                 Spacer()
                 
@@ -37,11 +38,12 @@ struct FloatingListpanel: View {
 }
 
 #Preview {
-    FloatingListpanel(isShowingFloatingPanel: .constant(false))
+    FloatingListpanel(isShowingFloatingPanel: .constant(false), panelPosition: .constant(.zero))
 }
 
 struct topView: View {
     @Binding var isShowingFloatingPanel: Bool
+    @Binding var panelPosition: CGPoint
     
     var body: some View {
         HStack{
@@ -54,7 +56,7 @@ struct topView: View {
                     .foregroundColor(.gray)
                     .cornerRadius(3)
                     .padding(.bottom)
-                Text("Trace Results")
+                Text("Frameworks Results")
             }
             .padding(.leading, 45)
             .frame(maxWidth: .infinity)
@@ -62,7 +64,8 @@ struct topView: View {
             
             
             Button {
-              isShowingFloatingPanel = false
+                isShowingFloatingPanel = false
+                panelPosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
             } label: {
                 Image(systemName: "xmark")
             }
