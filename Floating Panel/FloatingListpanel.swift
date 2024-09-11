@@ -32,6 +32,7 @@ struct FloatingListpanel: View {
                     }
                 }
                 .listStyle(.plain)
+                .highPriorityGesture(DragGesture())
             }
         }
     }
