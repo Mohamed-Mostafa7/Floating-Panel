@@ -9,5 +9,5 @@ import Foundation
 
 struct Constants {
     static let multiplierFor90percentScreen = 0.55
-    static let multiplierFor50percentScreen = 0.9
+    static let multiplierFor50percentScreen = 0.95
 }
