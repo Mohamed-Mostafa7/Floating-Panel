@@ -25,6 +25,10 @@ struct FloatingListpanel: View {
                 }
                 .listStyle(.plain)
                 .highPriorityGesture(DragGesture())
+                
+                Rectangle()
+                    .frame(height: UIScreen.main.bounds.height*0.1)
+                    .foregroundColor(Color(.systemBackground))
             }
         }
     }
