@@ -11,10 +11,10 @@ struct StartingView: View {
     @State var isShowingFloatingPanel = false
     @State private var offset: CGFloat = 0
     
-    @State var position = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*0.6)
+    @State var position = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor90percentScreen)
     
-    private var panelPositionAs90Precent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*0.6)
-    private var panelPositionAs50percent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height - UIScreen.main.bounds.height*0.1)
+    private var panelPositionAs90Precent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor90percentScreen)
+    private var panelPositionAs50percent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor50percentScreen)
     
     var body: some View {
         ZStack {

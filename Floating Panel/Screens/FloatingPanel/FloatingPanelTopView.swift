@@ -27,7 +27,7 @@ struct FloatingPanelTopView: View {
             
             Button {
                 isShowingFloatingPanel = false
-                panelPosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*0.6)
+                panelPosition = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor90percentScreen)
             } label: {
                 Image(systemName: "xmark")
             }
