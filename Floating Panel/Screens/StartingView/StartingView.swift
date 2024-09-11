@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct StartingView: View {
-    @State var isShowingFloatingPanel = false
-    @State private var offset: CGFloat = 0
-    
-    @State var position = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor90percentScreen)
-    
-    private var panelPositionAs90Precent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor90percentScreen)
-    private var panelPositionAs50percent = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*Constants.multiplierFor50percentScreen)
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         ZStack {
             VStack {
                 Button {
-                    isShowingFloatingPanel = true
+                    viewModel.isShowingFloatingPanel = true
                 } label: {
                     Text("Show Floating Panel")
                         .font(.title2)
@@ -33,33 +27,24 @@ struct StartingView: View {
             }
             .padding()
             
-            if isShowingFloatingPanel {
+            if viewModel.isShowingFloatingPanel {
                 Color(.label).opacity(0.4)
                     .edgesIgnoringSafeArea(.all)
                                 
-                FloatingListpanel(isShowingFloatingPanel: $isShowingFloatingPanel, panelPosition: $position)
+                FloatingListpanel(isShowingFloatingPanel: $viewModel.isShowingFloatingPanel, panelPosition: $viewModel.position)
                     .frame(height: UIScreen.main.bounds.height)
                     .transition(.move(edge: .bottom))
                     .cornerRadius(20)
-                    .position(position)
-                    .offset(CGSize(width: 0, height: offset))
+                    .position(viewModel.position)
+                    .offset(CGSize(width: 0, height: viewModel.offset))
                     .gesture(DragGesture()
                         .onChanged({ value in
-                        offset = value.translation.height
+                            viewModel.offset = value.translation.height
                     })
                         .onEnded({ value in
                             withAnimation {
-                                offset = .zero
-                                // check the the view position to set it to chose if it's gonna be displayed as 90%, 50%, or even dismissed.
-                                if value.location.y < UIScreen.main.bounds.height * 0.25 {
-                                    position = panelPositionAs90Precent
-                                }else if value.location.y > UIScreen.main.bounds.height * 0.60 {
-                                    isShowingFloatingPanel = false
-                                    // setting back the position to 90% after dismissing so that it can be 90% displayed in the next time.
-                                    position = panelPositionAs90Precent
-                                } else {
-                                    position =  panelPositionAs50percent
-                                }
+                                viewModel.offset = .zero
+                                viewModel.CalculatePosition(currentPanelYPosition: value.location.y)
                             }
                         }))
                     .animation(.easeInOut)

@@ -10,6 +10,7 @@ import SwiftUI
 struct FloatingPanelTopView: View {
     @Binding var isShowingFloatingPanel: Bool
     @Binding var panelPosition: CGPoint
+    
     var body: some View {
         HStack{
             VStack{
