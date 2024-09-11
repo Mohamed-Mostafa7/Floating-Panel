@@ -39,6 +39,7 @@ struct StartingView: View {
                     .offset(CGSize(width: 0, height: viewModel.offset))
                     .gesture(DragGesture()
                         .onChanged({ value in
+                            guard value.location.y > 0 else {return}
                             viewModel.offset = value.translation.height
                     })
                         .onEnded({ value in
